@@ -3,6 +3,7 @@
 
 <template>
   <main>
-    <TheWelcome />
+    <div class="h-[400px]">Home</div>
+
   </main>
 </template>

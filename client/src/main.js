@@ -1,15 +1,20 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp, defineAsyncComponent } from "vue";
+import { createPinia } from "pinia";
 
-import App from './App.vue'
-import router from './router'
+import App from "./App.vue";
+import router from "./router";
 
-import './assets/style/main.css'
-import './assets/style/tailwind.css'
+import "./assets/style/main.css";
+import "./assets/style/tailwind.css";
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(createPinia())
-app.use(router)
+app.component(
+  "default",
+  defineAsyncComponent(() => import("./layouts/default.vue"))
+);
 
-app.mount('#app')
+app.use(createPinia());
+app.use(router);
+
+app.mount("#app");
