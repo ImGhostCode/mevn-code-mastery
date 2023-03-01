@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-    @apply font-Roboto;
+    @apply font-Roboto bg-black text-white box-border;
 }
 
 .cf-top-menu-item {

@@ -1,0 +1,3 @@
+<template>
+    lab detail
+</template>

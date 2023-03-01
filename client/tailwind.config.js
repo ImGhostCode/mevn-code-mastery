@@ -22,6 +22,9 @@ module.exports = {
           400: "#A25F4B",
           600: "#744838",
         },
+        primary: {
+          400: "#f97316",
+        },
       },
       keyframes: {
         slideDown: {
@@ -33,10 +36,15 @@ module.exports = {
           from: { opacity: 0 },
           to: { opacity: 1 },
         },
+        show: {
+          from: { transform: "translateY(25%)", opacity: 0 },
+          to: { transform: "translateY(0%)", opacity: 1 },
+        },
       },
       animation: {
         slideDown: "slideDown .5s ease-in-out",
         fadeIn: "fadeIn .5s ease-in-out",
+        show: "show .3s ease-in-out",
       },
     },
   },

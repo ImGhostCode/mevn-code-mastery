@@ -13,6 +13,22 @@ const router = createRouter({
       component: () => import("../views/HomeView.vue"),
     },
     {
+      path: "/login",
+      name: "Login",
+      meta: {
+        layout: "auth",
+      },
+      component: () => import("../views/LoginView.vue"),
+    },
+    {
+      path: "/register",
+      name: "Register",
+      meta: {
+        layout: "auth",
+      },
+      component: () => import("../views/SignUpView.vue"),
+    },
+    {
       path: "/about",
       name: "About",
       meta: {
@@ -27,6 +43,46 @@ const router = createRouter({
         layout: "default",
       },
       component: () => import("../views/Coffee.vue"),
+    },
+    {
+      path: "/labs",
+      name: "Labs",
+      meta: {
+        layout: "default",
+      },
+      component: () => import("../views/Labs.vue"),
+    },
+    {
+      path: "/labs/detail",
+      name: "LabDetail",
+      meta: {
+        layout: "default",
+      },
+      component: () => import("../views/LabDetail.vue"),
+    },
+    {
+      path: "/courses/detail",
+      name: "CourseDetail",
+      meta: {
+        layout: "default",
+      },
+      component: () => import("../views/CourseDetail.vue"),
+    },
+    {
+      path: "/course",
+      name: "Courses",
+      meta: {
+        layout: "default",
+      },
+      component: () => import("../views/Courses.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "NotFound",
+      meta: {
+        layout: "auth",
+      },
+      component: () => import("../views/NotFound.vue"),
     },
   ],
 });
