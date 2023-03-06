@@ -4,13 +4,13 @@
         </h1>
         <form method="post" class="cm-login-form">
             <div class="flex flex-col">
-                <label class="uppercase text-xs font-bold mb-1" for="email">Email</label>
+                <label class="uppercase text-xs mb-1" for="email">Email</label>
                 <input type="email" name="email" id="email"
                     class="border-2 mb-3 p-3 h-full w-full border-purple-200 outline-none focus:border-purple-400 rounded-md"
                     placeholder="Email">
             </div>
             <div class="flex flex-col">
-                <label class="uppercase text-xs font-bold mb-1" for="password">Mật khẩu</label>
+                <label class="uppercase text-xs mb-1" for="password">Mật khẩu</label>
                 <input type="password" name="password" id="password"
                     class="border-2 mb-3 p-3 h-full w-full border-purple-200 outline-none focus:border-purple-400 rounded-md"
                     placeholder="Mật khẩu">
@@ -20,7 +20,7 @@
             <span>Ghi nho tai khoan</span>
         </div> -->
             <button
-                class="uppercase w-full p-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md mb-4 font-bold text-[15px]">Đăng
+                class="uppercase w-full p-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md mb-4 text-[15px]">Đăng
                 nhập</button>
 
             <div class="text-center mb-4 text-sm">
@@ -32,7 +32,7 @@
             </div>
 
             <div class="text-center">
-                <p class="font-bold">Hoặc đăng nhập với</p>
+                <p class="">Hoặc đăng nhập với</p>
                 <button class="w-full py-2 px-auto border-2 rounded-full border-gray-300 hover:bg-gray-200 my-3">
                     <router-link :to="{ name: 'Register', params: {} }">
                         <i class="fa-brands fa-facebook text-purple-800 text-xl"></i>

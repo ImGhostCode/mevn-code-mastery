@@ -69,12 +69,20 @@ const router = createRouter({
       component: () => import("../views/CourseDetail.vue"),
     },
     {
-      path: "/course",
+      path: "/courses",
       name: "Courses",
       meta: {
         layout: "default",
       },
       component: () => import("../views/Courses.vue"),
+    },
+    {
+      path: "/dashboard",
+      name: "Dashboard",
+      meta: {
+        layout: "default",
+      },
+      component: () => import("../views/Dashboard.vue"),
     },
     {
       path: "/:pathMatch(.*)*",

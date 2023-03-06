@@ -1,18 +1,18 @@
 <template>
     <footer>
-        <div
+        <!-- <div
             class="h-80 bg-[url('https://unica.vn/media/images/dkgv.jpg')] bg-no-repeat bg-cover bg-top text-white text-center flex flex-col justify-center items-center">
             <h1 class="text-3xl py-5">Trở thành Giảng viên Code Mastery</h1>
             <p class="text-[16px] py-3 pb-10">Hơn 1000 giảng viên đã có khóa học trên Code Mastery</p>
             <button
-                class="py-3 px-12 uppercase border-2 border-white rounded-md font-bold hover:bg-white hover:text-primary-400 hover:border-blue-400"><a
+                class="py-3 px-12 uppercase border-2 border-white rounded-md font-thin hover:bg-white hover:text-primary-400 hover:border-blue-400"><a
                     href="">Đăng ký
                     ngay</a></button>
-        </div>
+        </div> -->
 
         <div class="flex justify-center items-start flex-row gap-36 bg-[#2c3238] text-white">
             <div class="flex justify-center items-center flex-col text-left">
-                <p class="w-full text-primary-400 font-bold text-lg mt-6 mb-3">Địa chỉ</p>
+                <p class="w-full text-primary-400 font-thin text-lg mt-6 mb-3">Địa chỉ</p>
                 <ul class="text-sm font-semibold">
                     <li class="mb-3 hover:text-purple-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -69,7 +69,7 @@
             </div>
 
             <div class="flex justify-center items-center flex-col">
-                <p class="w-full text-primary-400 font-bold text-lg mt-6 mb-3">Về Code Mastery</p>
+                <p class="w-full text-primary-400 font-thin text-lg mt-6 mb-3">Về Code Mastery</p>
                 <ul class="text-sm font-semibold">
                     <li class="mb-3"><a href="#" class="hover:text-purple-600">Giới thiệu về Unica</a></li>
                     <li class="mb-3"><a href="#" class="hover:text-purple-600">Câu hỏi thường gặp</a></li>
@@ -81,7 +81,7 @@
                 </ul>
             </div>
             <div class="flex justify-center items-center flex-col">
-                <p class="w-full text-primary-400 font-bold text-lg mt-6 mb-3">Hợp tác liên kết</p>
+                <p class="w-full text-primary-400 font-thin text-lg mt-6 mb-3">Hợp tác liên kết</p>
                 <ul class="text-sm font-semibold">
                     <li class="mb-3"><a href="#" class="hover:text-purple-600">Đăng ký giảng viên</a></li>
                     <li class="mb-3"><a href="#" class="hover:text-purple-600">Giải pháp e-learning</a></li>
@@ -93,7 +93,7 @@
                 </ul>
             </div>
             <div class="flex justify-center items-center flex-col">
-                <p class="w-full text-primary-400 font-bold text-lg mt-6 mb-3">Kết nối</p>
+                <p class="w-full text-primary-400 font-thin text-lg mt-6 mb-3">Kết nối</p>
                 <ul class="text-sm flex">
                     <li class="mb-3 mr-3 text-xl"><a href="#" class="hover:text-purple-600 px-3 py-3"><i
                                 class="fa-brands fa-facebook-f"></i></a>

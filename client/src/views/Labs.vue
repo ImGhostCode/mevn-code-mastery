@@ -3,7 +3,7 @@
         <div class="container mb-32">
             <div class="text-center">
                 <h1 class="text-5xl font-extrabold uppercase mb-4">labs</h1>
-                <p class="text-slate-400 text-sm">Video bai hoc va huong dan</p>
+                <p class="text-slate-400 text-sm">Video bài học và hướng dẫn</p>
             </div>
             <div class="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-gray-500 to-gray-400 rounded-full"></div>
             <div class="grid grid-cols-4 gap-6 ">

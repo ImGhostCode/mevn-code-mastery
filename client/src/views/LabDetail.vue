@@ -18,20 +18,27 @@
                 </a>
             </div>
 
-            <h1 class="text-5xl text-rose-400 font-extrabold uppercase mb-10">
+            <h1 class="text-5xl text-yellow-400 font-extrabold uppercase mb-10">
                 Pocketbase Chat App
             </h1>
-            <p>In the following tutorial we will build a chat app with Pocketbase and Svelte. Pocketbase is a backend
+            <p class="mb-8">In the following tutorial we will build a chat app with Pocketbase and Svelte. Pocketbase is a
+                backend
                 (inspired by Firebase) structured as a single executable file. It provides a realtime DB based on SQLite and
                 user authentication system that allows us to quickly prototype and deploy a chat app.</p>
+
+            <ul>
+                <li class="text-4xl text-white font-extrabold uppercase mb-10">Pocketbase Setup</li>
+                <li class="text-4xl text-white font-extrabold uppercase mb-10">Frontend App</li>
+                <li class="text-4xl text-white font-extrabold uppercase mb-10">Deploying Pocketbase to Linode</li>
+            </ul>
             <div class="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-gray-500 to-gray-400 rounded-full"></div>
         </div>
 
         <div class="basis-1/4 ">
             <ul class="p-5 text-gray-300">
-                <li><a href="#">Pocketbase Setup</a></li>
-                <li><a href="#">Frontend App</a></li>
-                <li><a href="#">Deploying Pocketbase to Linode</a></li>
+                <li class="mb-2"><a href="#">Pocketbase Setup</a></li>
+                <li class="mb-2"><a href="#">Frontend App</a></li>
+                <li class="mb-2"><a href="#">Deploying Pocketbase to Linode</a></li>
             </ul>
         </div>
     </div>

@@ -1,5 +1,14 @@
-@urlDev=http://localhost:3051
+@urlDev=http://localhost:3051/api
 
-### checkStatus
+### user
 
-GET {{urlDev}}/checkstatus
+GET {{urlDev}}/users
+
+
+### user
+
+GET {{urlDev}}/courses
+
+### user
+
+GET {{urlDev}}/labs

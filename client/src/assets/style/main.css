@@ -3,3 +3,15 @@
     --bg-slider: linear-gradient(to right, rgb(0, 126, 254), rgb(6, 195, 254));
 }
 
+@font-face {
+    font-family: cubano;
+    src: url(../font/Cubano/iCielBCCubano-Normal.otf);
+  }
+
+.tag {
+    @apply font-Roboto text-sm rounded-lg inline-block mr-4;
+}
+
+.react-tag {
+    @apply bg-black text-blue-400;
+}

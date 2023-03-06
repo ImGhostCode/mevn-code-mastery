@@ -1,21 +1,29 @@
-# express-mvc-framework
-nodejs + express + mongodb to do MVC example
+# Code mastery API
 
-Youtube: [API Structure Your Nodejs REST API for beginner to Advanced](https://youtu.be/i4Pr81apfnU)
+## Route
 
-Blog: [backend nodejs](https://anonystick.com)
+### COURSE
 
-# How to use
+- [GET] /api/courses
+- [GET] /api/courses/slug
 
-### clone git
+### LABS
 
-```
-> git clone https://github.com/anonystick/structure-api-mvc-express-nodejs.git your-project
-> cd your-project
-> npm i
-> npm run dev
-```
+- [GET] /api/labs
+- [GET] /api/labs/slug
 
-# Try
+### SEARCH
 
-[localhost](http://localhost:3051)
+- [GET] /api/search
+
+### AUTH
+
+- [POST] /api/auth/login
+- [POST] /api/auth/register
+- [POST] /api/auth/logout
+
+### Account
+
+- [GET] /api/users/:id
+- [PUT] /api/users/:id
+- [DELETE] /api/users/:id

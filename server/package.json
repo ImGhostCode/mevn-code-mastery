@@ -1,17 +1,16 @@
 {
-  "name": "structure-api-mvc-express-nodejs",
+  "name": "code-mastery-api",
   "version": "1.0.0",
-  "description": "structure api mvc express nodejs",
+  "description": "api for code mastery",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "node --watch server.js"
   },
   "keywords": [],
-  "author": "anonystick <anonystick@gmail.com>",
+  "author": "ghost",
   "license": "ISC",
   "dependencies": {
     "compression": "^1.7.4",
@@ -20,7 +19,6 @@
     "helmet": "^5.1.0",
     "mongoose": "^6.3.3",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.20",
     "redis": "^3.1.2",
     "winston": "^3.7.2"
   }

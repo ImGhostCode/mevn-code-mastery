@@ -14,6 +14,7 @@ module.exports = {
       fontFamily: {
         Karla: ["Karla", "sans-serif"],
         Roboto: ["Roboto", "sans-serif"],
+        Cubano: ["cubano", "sans-serif"],
       },
       colors: {
         coffee: {
