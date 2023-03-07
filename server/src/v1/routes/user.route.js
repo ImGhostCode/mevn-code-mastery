@@ -1,11 +1,11 @@
 const express = require("express");
+const userController = require("../controllers/user.controller");
 const router = express.Router();
 
-router.get("/", (req, res, next) => {
-  res.status(200).json({
-    status: "success",
-    message: "/api/users/",
-  });
-});
+router
+  .get("/:id", userController.getUserById)
+  .get("/", userController.getAllUsers)
+  .put("/:id", userController.updateUserById)
+  .delete("/:id", userController.deleteUserById);
 
 module.exports = router;

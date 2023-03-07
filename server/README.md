@@ -18,12 +18,12 @@
 
 ### AUTH
 
-- [POST] /api/auth/login
-- [POST] /api/auth/register
-- [POST] /api/auth/logout
+- [x] [POST] /api/auth/login
+- [x] [POST] /api/auth/register
+- [] [POST] /api/auth/logout
 
 ### Account
 
-- [GET] /api/users/:id
-- [PUT] /api/users/:id
-- [DELETE] /api/users/:id
+- [x] [GET] /api/users/:id
+- [x] [PUT] /api/users/:id
+- [x] [DELETE] /api/users/:id
