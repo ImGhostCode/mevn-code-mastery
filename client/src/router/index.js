@@ -85,10 +85,18 @@ const router = createRouter({
       component: () => import("../views/Dashboard.vue"),
     },
     {
+      path: "/contributors",
+      name: "Contributors",
+      meta: {
+        layout: "default",
+      },
+      component: () => import("../views/Contributors.vue"),
+    },
+    {
       path: "/:pathMatch(.*)*",
       name: "NotFound",
       meta: {
-        layout: "auth",
+        layout: "default",
       },
       component: () => import("../views/NotFound.vue"),
     },

@@ -28,7 +28,7 @@ class userService {
 
   async deleteUserById({ id }) {
     const result = await _User.findOneAndDelete({ _id: id });
-    return new ApiRes(200, "success", null, result);
+    return new ApiRes(200, "success", null, result.de);
   }
 }
 

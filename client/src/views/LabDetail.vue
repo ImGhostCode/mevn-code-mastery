@@ -21,7 +21,8 @@
             <h1 class="text-5xl text-yellow-400 font-extrabold uppercase mb-10">
                 Pocketbase Chat App
             </h1>
-            <p class="mb-8">In the following tutorial we will build a chat app with Pocketbase and Svelte. Pocketbase is a
+            <p class="mb-8 font-Roboto">In the following tutorial we will build a chat app with Pocketbase and Svelte.
+                Pocketbase is a
                 backend
                 (inspired by Firebase) structured as a single executable file. It provides a realtime DB based on SQLite and
                 user authentication system that allows us to quickly prototype and deploy a chat app.</p>
