@@ -3,34 +3,6 @@
 ### user
 GET {{urlDev}}/users
 
-
-
-### courses
-GET {{urlDev}}/courses
-
-### user
-GET {{urlDev}}/labs
-
-### register 
-POST {{urlDev}}/auth/register
-Content-Type: application/json 
-
-{
-    "username": "ghost3",
-    "email": "ghost3@gmail.com",
-    "phone": "012345678",
-    "password": "1234678"
-}
-
-### login 
-POST {{urlDev}}/auth/login
-Content-Type: application/json 
-
-{
-    "email": "ghost3@gmail.com",
-    "password": "1234678"
-}
-
 ### all users
 GET {{urlDev}}/users
 
@@ -49,5 +21,3 @@ Content-Type:  application/json
 
 ### delete user by id
 DELETE {{urlDev}}/users/64072da6bd3a4aaea6b60b16
-
-

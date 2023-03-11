@@ -1,0 +1,102 @@
+@urlDev=http://localhost:3051/api/contributors
+
+// Create contributor
+POST {{urlDev}}/
+Content-Type: application/json
+
+{
+    "name": "Jeff Delaney",
+    "imageUrl" :"https://fireship.io/contributors/img/jeff-delaney.webp",
+    "url": [{
+        "title": "Github",
+        "url": "https://github.com/codediodeio"
+    },{
+        "title": "Linkedin",
+        "url": "https://www.linkedin.com/in/jeff-delaney/"
+    },{
+        "title": "Medium",
+        "url": "https://medium.com/@jeffdelaney"
+    },{
+        "title": "Portfolio",
+        "url": "https://jeffdelaney.me/"
+    },{
+        "title": "Twitter",
+        "url": "https://twitter.com/Jeffdelaney23"
+    },
+    {
+        "title": "Youtube",
+        "url": "https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA"
+    }],
+    "bio": "Jeff Delaney is a Google Developer Expert and the creator of fireship.io. When not writing code, he is out seeking adventure with his wife and 3 boys.",
+    "labs":[],
+    "courses": []
+}
+
+### 
+// Create contributor
+POST {{urlDev}}/
+Content-Type: application/json
+
+{
+    "name": "Zack DeRose",
+    "imageUrl" :"https://fireship.io/contributors/img/zack-derose.webp",
+    "url": [{
+        "title": "Github",
+        "url": "https://github.com/ZackDeRose"
+    },{
+        "title": "Supaship",
+        "url": "https://supaship.io/"
+    },{
+        "title": "Twitter",
+        "url": "https://twitter.com/zackderose"
+    },
+    {
+        "title": "Youtube",
+        "url": "https://youtube.com/@Supaship6000"
+    }],
+    "bio": "Zack always bets on Javascript (and Typescript), but he also enjoys Postgres, making videos, and has been dabbling recently in shit-posting on Twitter.",
+    "labs":[],
+    "courses": []
+}
+
+### Get all contributors
+GET {{urlDev}}/
+
+### Get contributor by id
+GET {{urlDev}}/id/640c84254c85ce0493226cf5
+
+### Get contributor by slug
+GET {{urlDev}}/slug/jeff-delaney
+
+###
+// Update contributor
+PUT {{urlDev}}/640c85c9fbe8a9d71ef5ceb2
+Content-Type: application/json
+
+{
+    "name": "Zack DeRose test updated 1",
+    "imageUrl" :"https://fireship.io/contributors/img/zack-derose.webp",
+    "url": [{
+        "title": "Github",
+        "url": "https://github.com/ZackDeRose"
+    },{
+        "title": "Supaship",
+        "url": "https://supaship.io/"
+    },{
+        "title": "Twitter",
+        "url": "https://twitter.com/zackderose"
+    }
+    ],
+    "bio": "Zack always bets on Javascript (and Typescript), but he also enjoys Postgres, making videos, and has been dabbling recently in shit-posting on Twitter. updated",
+    "labs":[],
+    "courses": []
+}
+
+
+### Delete contributor
+DELETE {{urlDev}}/640c85c9fbe8a9d71ef5ceb2
+
+
+
+
+

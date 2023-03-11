@@ -1,11 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const slug = require("mongoose-slug-generator");
 
 const LabSchema = new Schema(
   {
     title: {
       type: String,
       required: true,
+    },
+    slug: {
+      type: String,
+      slug: "title",
+      unique: true,
     },
     description: {
       type: String,
@@ -37,5 +43,7 @@ const LabSchema = new Schema(
     timestamps: true,
   }
 );
+
+mongoose.plugin(slug);
 
 module.exports = mongoose.model("Lab", CourseSchema);

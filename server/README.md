@@ -32,9 +32,9 @@
 
 ### CONTRIBUTOR
 
-- [] [GET] /api/contributor
-- [] [GET] /api/contributor/:id
-- [] [POST] /api/contributor
-- [] [PUT] /api/contributor/:id
-- [] [DELETE] /api/contributor/:id
-- [] [GET] /api/contributor/slug
+- [x] [GET] /api/contributor
+- [x] [GET] /api/contributor/:id
+- [x] [POST] /api/contributor
+- [x] [PUT] /api/contributor/:id
+- [x] [DELETE] /api/contributor/:id
+- [x] [GET] /api/contributor/slug
