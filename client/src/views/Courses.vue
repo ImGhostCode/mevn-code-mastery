@@ -41,9 +41,6 @@
 </template>
 
 <script setup>
-import { defineComponent } from 'vue';
 import Course from '../components/Course.vue';
-defineComponent({
-    Course
-})
+
 </script>

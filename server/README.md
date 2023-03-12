@@ -4,9 +4,12 @@
 
 ### COURSE
 
-- [] [GET] /api/courses
-- [] [GET] /api/courses/slug
-- [] [GET] /api/courses/:id
+- [x] [GET] /api/courses
+- [x] [POST] /api/courses
+- [x] [GET] /api/courses/slug
+- [x] [GET] /api/courses/:id
+- [x] [PUT] /api/courses/:id
+- [x] [DELETE] /api/courses/:id
 
 ### LABS
 

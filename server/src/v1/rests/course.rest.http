@@ -1,0 +1,122 @@
+@urlDev=http://localhost:3051/api/courses
+
+### Create course
+POST {{urlDev}}/
+Content-Type: application/json
+
+{
+     "title": "React Supabase Full Course",
+        "description": "Build and deploy a full-stack, production-ready web app with Supabase, React, and Postgres.",
+        "authorID": "640c84254c85ce0493226cf5",
+        "imgUrl": "https://fireship.io/courses/supabase/img/featured.webp",
+        "videoUrl": "https://player.vimeo.com/video/775081844?h=7c38a7cc45&app_id=122963",
+        "willLearn": "👨‍🎤 Master the Basics of Supabase-⚛ Build interactive UI components with React-💪 Type-safe queries with TypeScript-👨‍🚀 User Authentication and Row-level Security-📊 Data modeling in a relational SQL database-👨‍🔬 Advanced Postgres techniques like Triggers and Functions-🎭 End-to-end testing with Playwright-🚀 Full-stack deployment breakdown",
+        "price": "20",
+        "chapters":[
+            {
+            "title": "Meet Zack",
+            "description": "Get to know your instructor Zack DeRose"
+            },
+            {
+            "title": "Resources",
+            "description": "Resources for the course"
+            },
+            {
+            "title": "Supabase in 100 Seconds",
+            "description": "A quick introduction into the Supabase platform"
+            },
+            {
+            "title": "React Primer",
+            "description": "Breakdown of React Hooks and other essential concepts"
+            },
+            {
+            "title": "Supabase Primer",
+            "description": "Breakdown of core Supabase features and concepts"
+            },
+            {
+            "title": "Frontend Setup",
+            "description": "Setup the clientside app with Vite and React"
+            },
+            {
+            "title": "Supabase CLI",
+            "description": "Create and configure a new Supabase project with the CLI"
+            },
+            {
+            "title": "Playwright E2E Testing",
+            "description": "Configure Playwright for end-to-end testing"
+            }
+        ],
+        "tags": ["react", "supabase", "pro"],
+        "students": 100
+}
+### Create course
+POST {{urlDev}}/
+Content-Type: application/json
+
+{
+     "title": "Modern JavaScript Full Course",
+        "description": "Learn how to build real-world applications with JavaScript",
+        "authorID": "640c83824c85ce0493226ce4",
+        "imgUrl": "https://fireship.io/courses/js/img/featured.webp",
+        "videoUrl": "https://player.vimeo.com/video/773378423",
+        "willLearn": "👶 The Basics of JavaScript-👨‍🎤 Advanced concepts broken down in a quick no-BS format-📰 Prepare for JS interviews by coding algorithms-🧪 Test Driven Development with Vitest-⚔️ Debugging and Error Handling-🎨 Build a text-to-image API with Node.js and OpenAI-🗯️ Learn modern browser APIs like Fetch-🍕 A great primer for more advanced Fireship courses",
+        "price": "20",
+        "chapters":[
+            {
+            "title": "Resources",
+            "description": "Source code and course resources"
+            },
+            {
+            "title": "JavaScript in 100 Seconds",
+            "description": "A quick introduction to the greatest programming language ever created"
+            },
+            {
+            "title": "JavaScript Crash Course",
+            "description": "101 concepts every JavaScript developer should know"
+            },
+            {
+            "title": "Prototype Chain",
+            "description": "How does Prototypal Inheritance work?"
+            },
+            {
+            "title": "Destructuring",
+            "description": "Use destructuring to work with objects with ease."
+            },
+            {
+            "title": " Spread",
+            "description": "Use the spread syntax to combine objects"
+            },
+            {
+            "title": "Optional Chaining",
+            "description": "Call object properties safely"
+            },
+            {
+            "title": "Nullish Coalescing",
+            "description": "How nullish coalescing is realted to truthy and falsy values"
+            }
+        ],
+        "tags": ["javascript", "node", "pro"],
+        "students": 150
+}
+
+### Get all courses
+GET {{urlDev}}/
+
+### Get course by id
+GET {{urlDev}}/id/640d6c2103c137b09af0e49a
+
+### Get course by slug
+GET {{urlDev}}/slug/React-Supabase-full-course
+
+###
+// Update course
+PUT {{urlDev}}/640d6fcccd0a05b1e86247cd
+Content-Type: application/json
+
+{
+     "title": "React Supabase Full Course test update 3",
+     "students": 2000
+}
+
+### Delete course
+DELETE {{urlDev}}/640d6d54340553b97a2f804b

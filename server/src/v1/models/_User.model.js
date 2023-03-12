@@ -37,6 +37,7 @@ const userSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    subscriptions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
   },
   {
     timestamps: true,

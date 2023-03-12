@@ -15,13 +15,19 @@ class contributorService {
     if (contributor) {
       return new ApiRes(400, "failed", "Contributor already exists!");
     }
-    const newUser = new _Contributor({ name, imageUrl, url, bio, courses });
+    const newContributor = new _Contributor({
+      name,
+      imageUrl,
+      url,
+      bio,
+      courses,
+    });
 
     return new ApiRes(
       200,
       "success",
       "Contributor creared successfull",
-      await newUser.save()
+      await newContributor.save()
     );
   }
 

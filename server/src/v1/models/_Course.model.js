@@ -48,12 +48,11 @@ const CourseSchema = new Schema(
         },
       },
     ],
-    students: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
+    students: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
     //   created: {
     //     type: Date,
     //     default: Date.now,
