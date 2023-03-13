@@ -13,9 +13,12 @@
 
 ### LABS
 
-- [] [GET] /api/labs
-- [] [GET] /api/labs/slug
-- [] [GET] /api/labs/:id
+- [x] [GET] /api/labs
+- [x] [POST] /api/labs
+- [x] [GET] /api/labs/slug
+- [x] [GET] /api/labs/:id
+- [x] [PUT] /api/labs/:id
+- [x] [DELETE] /api/labs/:id
 
 ### SEARCH
 

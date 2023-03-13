@@ -31,10 +31,8 @@ const LabSchema = new Schema(
     },
     steps: [
       {
-        title: {
-          type: String,
-          required: true,
-        },
+        type: String,
+        required: true,
       },
     ],
     tags: [{ type: String, required: true }],
@@ -46,4 +44,4 @@ const LabSchema = new Schema(
 
 mongoose.plugin(slug);
 
-module.exports = mongoose.model("Lab", CourseSchema);
+module.exports = mongoose.model("Lab", LabSchema);
