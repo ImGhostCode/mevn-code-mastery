@@ -1,4 +1,4 @@
-@urlDev=http://localhost:3051/api/courses
+@urlDev=http://localhost:3051/api/v1/courses
 
 ### Create course
 POST {{urlDev}}/

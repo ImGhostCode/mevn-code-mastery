@@ -20,7 +20,7 @@ app.use(
 );
 
 //router
-app.use("/api", require("./v1/routes/index.router"));
+app.use("/api/v1", require("./v1/routes/index.router"));
 
 // Error Handling Middleware called
 
@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 
 // error handler middleware
 app.use((error, req, res, next) => {
-  res.status(error.code || 500).send({
+  return res.status(error.code || 500).json({
     code: error.code || 500,
     status: error.status,
     message: error.message || "Internal Server Error",

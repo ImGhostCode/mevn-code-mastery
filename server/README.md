@@ -4,43 +4,43 @@
 
 ### COURSE
 
-- [x] [GET] /api/courses
-- [x] [POST] /api/courses
-- [x] [GET] /api/courses/slug
-- [x] [GET] /api/courses/:id
-- [x] [PUT] /api/courses/:id
-- [x] [DELETE] /api/courses/:id
+- [x] [GET] /api/v1/courses
+- [x] [POST] /api/v1/courses
+- [x] [GET] /api/v1/courses/slug
+- [x] [GET] /api/v1/courses/:id
+- [x] [PUT] /api/v1/courses/:id
+- [x] [DELETE] /api/v1/courses/:id
 
 ### LABS
 
-- [x] [GET] /api/labs
-- [x] [POST] /api/labs
-- [x] [GET] /api/labs/slug
-- [x] [GET] /api/labs/:id
-- [x] [PUT] /api/labs/:id
-- [x] [DELETE] /api/labs/:id
+- [x] [GET] /api/v1/labs
+- [x] [POST] /api/v1/labs
+- [x] [GET] /api/v1/labs/slug
+- [x] [GET] /api/v1/labs/:id
+- [x] [PUT] /api/v1/labs/:id
+- [x] [DELETE] /api/v1/labs/:id
 
 ### SEARCH
 
-- [] [GET] /api/search
+- [] [GET] /api/v1/search
 
 ### AUTH
 
-- [x] [POST] /api/auth/login
-- [x] [POST] /api/auth/register
-- [] [POST] /api/auth/logout
+- [x] [POST] /api/v1/auth/login
+- [x] [POST] /api/v1/auth/register
+- [] [POST] /api/v1/auth/logout
 
 ### Account
 
-- [x] [GET] /api/users/:id
-- [x] [PUT] /api/users/:id
-- [x] [DELETE] /api/users/:id
+- [x] [GET] /api/v1/users/:id
+- [x] [PUT] /api/v1/users/:id
+- [x] [DELETE] /api/v1/users/:id
 
 ### CONTRIBUTOR
 
-- [x] [GET] /api/contributor
-- [x] [GET] /api/contributor/:id
-- [x] [POST] /api/contributor
-- [x] [PUT] /api/contributor/:id
-- [x] [DELETE] /api/contributor/:id
-- [x] [GET] /api/contributor/slug
+- [x] [GET] /api/v1/contributor
+- [x] [GET] /api/v1/contributor/:id
+- [x] [POST] /api/v1/contributor
+- [x] [PUT] /api/v1/contributor/:id
+- [x] [DELETE] /api/v1/contributor/:id
+- [x] [GET] /api/v1/contributor/slug

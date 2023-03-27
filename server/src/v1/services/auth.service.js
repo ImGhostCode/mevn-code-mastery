@@ -9,7 +9,7 @@ class AuthService {
     const user = await _User.findOne({ email });
     console.log(user);
     if (user) {
-      return new ApiRes(400, "failed", "Email already exists!");
+      return new ApiRes(400, "failed", "Email already exists!", null);
     }
     const newUser = new _User({ username, email, phone, password });
 
@@ -18,7 +18,7 @@ class AuthService {
   async login({ email, password }) {
     const user = await _User.findOne({ email });
     if (!user) {
-      return new ApiRes(404, "failed", "User not found");
+      return new ApiRes(404, "failed", "User not found", null);
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);

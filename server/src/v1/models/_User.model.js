@@ -37,6 +37,11 @@ const userSchema = new mongoose.Schema(
       default: "",
       trim: true,
     },
+    phone: {
+      type: Number,
+      default: "",
+      trim: true,
+    },
     subscriptions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
   },
   {

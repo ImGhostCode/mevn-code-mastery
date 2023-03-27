@@ -1,4 +1,4 @@
-@urlDev=http://localhost:3051/api/users
+@urlDev=http://localhost:3051/api/v1/users
 
 ### user
 GET {{urlDev}}/users

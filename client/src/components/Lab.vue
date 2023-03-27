@@ -1,6 +1,6 @@
 <template>
     <div class="card rounded-xl overflow-hidden mb-12 min-h-[400px]">
-        <router-link :to="{ name: 'CourseDetail', params: { slug: props.info.slug } }" class="h-full block">
+        <router-link :to="{ name: 'LabDetail', params: { slug: props.info.slug } }" class="h-full block">
             <div class="card-header">
                 <img :src="props.info.imgUrl" :alt="props.info.slug">
             </div>
@@ -22,7 +22,7 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 const props = defineProps(['info'])
-// console.log(props.info);
+// console.log(props.info.slug);
 
 
 </script>

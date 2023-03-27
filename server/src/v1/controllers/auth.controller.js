@@ -11,9 +11,10 @@ module.exports = {
         phone,
         password,
       });
+
       return res.json(response);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json(new ApiError(400, "failed", error.message, null));
     }
   },
   loginController: async (req, res, next) => {
@@ -26,7 +27,7 @@ module.exports = {
       });
       return res.json(response);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json(new ApiError(400, "failed", error, null));
     }
   },
 };

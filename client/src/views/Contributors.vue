@@ -30,10 +30,10 @@
         <div class="">
             <h3 class="text-4xl  text-white font-extrabold uppercase mb-10 font-Cubano">Lessons</h3>
             <div class="grid grid-cols-4 gap-6 ">
+                <!-- <course></course>
                 <course></course>
                 <course></course>
-                <course></course>
-                <course></course>
+                <course></course> -->
             </div>
         </div>
     </div>
@@ -42,5 +42,6 @@
 
 <script setup>
 import Course from '../components/Course.vue';
+import Lab from '../components/Lab.vue';
 
 </script>

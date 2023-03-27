@@ -1,4 +1,4 @@
-@urlDev=http://localhost:3051/api/labs
+@urlDev=http://localhost:3051/api/v1/labs
 
 
 ### Create lab
@@ -8,7 +8,7 @@ Content-Type: application/json
 {
      "title": "Programmatic Video Editing with FFmpeg",
         "description": "As a YouTuber, one of my biggest time sucks is video editing, so I recently wrote several video editing scripts with FFmpeg to increse my productivity. It is a popular command line tool that can convert, transform, and filter nearly any multimedia format (over 100+ codecs supported). In the following lesson, we’ll look at a collection of useful techniques for working with FFmpeg that you can use to build your own video editing utilities or apps.",
-        "authorID": "640c83824c85ce0493226ce4",
+       "authorID": "640c83824c85ce0493226ce4",
         "imgUrl": "https://fireship.io/lessons/ffmpeg-useful-techniques/img/featured.webp",
         "videoUrl": "https://youtu.be/26Mayv5JPz0",
         "steps":[
@@ -41,17 +41,12 @@ GET {{urlDev}}/id/640f1ee827f03a9ccb0affda
 GET {{urlDev}}/slug/pocketbase-chat-app
 ###
 // Update lab
-PUT {{urlDev}}/640f1f2d27f03a9ccb0affeb
+PUT {{urlDev}}/640f1eee27f03a9ccb0affe1
 Content-Type: application/json
 
 {
-     "title": "React Supabase Full Course test test update",
-     "tags": [
-        "pocketbase",
-      "svelte", 
-      "test"
-     ]
+    "authorID": "640c83824c85ce0493226ce4"
 }
 
 ### Delete lab
-DELETE {{urlDev}}/640f1f2d27f03a9ccb0affeb
+DELETE {{urlDev}}/640f1ee827f03a9ccb0affda

@@ -1,4 +1,4 @@
-@urlDev=http://localhost:3051/api/contributors
+@urlDev=http://localhost:3051/api/v1/contributors
 
 // Create contributor
 POST {{urlDev}}/

@@ -45,6 +45,14 @@ const router = createRouter({
       component: () => import("../views/Coffee.vue"),
     },
     {
+      path: "/labs/detail/:slug",
+      name: "LabDetail",
+      meta: {
+        layout: "default",
+      },
+      component: () => import("../views/LabDetail.vue"),
+    },
+    {
       path: "/labs",
       name: "Labs",
       meta: {
@@ -53,15 +61,7 @@ const router = createRouter({
       component: () => import("../views/Labs.vue"),
     },
     {
-      path: "/labs/detail",
-      name: "LabDetail",
-      meta: {
-        layout: "default",
-      },
-      component: () => import("../views/LabDetail.vue"),
-    },
-    {
-      path: "/courses/detail",
+      path: "/courses/detail/:slug",
       name: "CourseDetail",
       meta: {
         layout: "default",
@@ -76,6 +76,7 @@ const router = createRouter({
       },
       component: () => import("../views/Courses.vue"),
     },
+
     {
       path: "/dashboard",
       name: "Dashboard",

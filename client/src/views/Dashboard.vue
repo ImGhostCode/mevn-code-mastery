@@ -54,7 +54,7 @@
 
 
             <ul v-if="isShow.subscription" class="grid grid-cols-2 gap-4">
-                <li>
+                <!-- <li>
                     <Course></Course>
                 </li>
                 <li>
@@ -68,7 +68,7 @@
                 </li>
                 <li>
                     <Course></Course>
-                </li>
+                </li> -->
 
             </ul>
 

@@ -3,7 +3,7 @@ class ApiError extends Error {
     super(message);
     this.code = code;
     this.status = status;
-    this.data = null;
+    this.data = data;
   }
 }
 
