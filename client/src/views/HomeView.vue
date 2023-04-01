@@ -5,7 +5,7 @@
       v-if="topCourse">
       <div class="flex justify-center flex-col p-10 basis-1/2">
         <h1 class="text-4xl font-semibold mb-4">{{ topCourse.title }}</h1>
-        <p class="mb-4">{{ topCourse.description }}</p>
+        <p class="mb-4 font-Roboto">{{ topCourse.description }}</p>
         <router-link :to="{
           name: 'CourseDetail', params: { slug: topCourse.slug }
         }" class="inline-block w-max px-5 py-3 border-2 rounded-full border-white">Errol now</router-link>
