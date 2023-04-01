@@ -1,16 +1,16 @@
 <template>
-    <div class="w-[768px] mx-auto mb-16">
-        <h1 class="text-5xl font-bold text-center uppercase mb-4 mt-16">Ghost</h1>
+    <div class="w-[768px] mx-auto mb-16" v-if="userStore.user">
+        <h1 class="text-5xl font-bold text-center uppercase mb-4 mt-16">{{ userStore.user.username }}</h1>
 
         <div class="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-green-600 to-green-400 rounded-full"></div>
 
-        <div class="font-Roboto text-xl text-slate-300 mb-16    ">
-            <div class="mb-4">User ID: <span class="text-white font-bold">i2rKOncDDBSSxPKG56mqmWcNWkf1</span>
+        <div class="font-Roboto text-xl text-slate-300 mb-16  ">
+            <div class="mb-4">User ID: <span class="text-white font-bold">{{ userStore.user._id }}</span>
             </div>
 
-            <div class="mb-4">PRO Status: <span class="font-Cubano">basic</span></div>
+            <div class="mb-4">PRO Status: <span class="font-Cubano">{{ userStore.user.proStatus }}</span></div>
 
-            <div class="mb-4">Account Email: <span class="text-white font-bold">thanhliem91.2016@gmail.com</span></div>
+            <div class="mb-4">Account Email: <span class="text-white font-bold">{{ userStore.user.email }}</span></div>
 
             <a href="#" class="block text-black bg-white w-max py-2 px-3 uppercase text-sm font-semibold">
                 sign out
@@ -69,7 +69,7 @@
                 <li>
                     <Course></Course>
                 </li> -->
-
+                test
             </ul>
 
         </div>
@@ -80,16 +80,40 @@
         <button
             class="block text-white bg-red-600 font-semibold px-3 mb-6 border-none outline-none py-2 text-[16px] font-Roboto">Delete
             this Account</button>
-
     </div>
+    <div class="" v-else-if="userStore.err">{{ userStore.err }}</div>
+    <div class="" v-else-if="userStore.isLoading">Loading...</div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import Course from '../components/Course.vue';
+import { useUserStore } from '../stores/user.store'
+import { useRoute } from 'vue-router';
+import { useAuthStore } from '../stores/auth.store';
+
+const { params } = useRoute()
 
 const isShow = ref({
     update: false,
     subscription: false
 })
+
+const dataUpdate = reactive({
+    username: '',
+    city: '',
+    phone: ''
+})
+const userStore = useUserStore()
+const authStore = useAuthStore()
+
+onMounted(async () => {
+    await userStore.getUserById(authStore?.user?._id)
+    console.log(userStore.user);
+})
+
+function handleUpdateUser() {
+
+}
+
 </script>

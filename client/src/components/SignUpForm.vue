@@ -134,9 +134,9 @@ async function handleRegister() {
         return
     }
 
-    await authStore.register({ data })
+    await authStore.register(data)
     if (authStore.result?.code && authStore.result?.code === 200) {
-        setTimeout(() => { router.push({ name: 'Home', params: {} }) }, 2000)
+        setTimeout(() => { router.push({ name: 'Login', params: {} }) }, 2000)
 
     }
 }

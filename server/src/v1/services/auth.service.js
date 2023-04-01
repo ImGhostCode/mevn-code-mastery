@@ -3,7 +3,7 @@ const ApiRes = require("../utils/apiRes");
 const bcrypt = require("bcryptjs");
 
 class AuthService {
-  constructor() {}
+  constructor() { }
 
   async register({ username, email, phone, password }) {
     const user = await _User.findOne({ email });
@@ -18,7 +18,7 @@ class AuthService {
   async login({ email, password }) {
     const user = await _User.findOne({ email });
     if (!user) {
-      return new ApiRes(404, "failed", "User not found", null);
+      return new ApiRes(404, "failed", "Email not found", null);
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);

@@ -10,6 +10,11 @@ class AuthService {
       await this.api.post("/register", data)
     ).data;
   }
+  async login(data) {
+    return await (
+      await this.api.post("/login", data)
+    ).data;
+  }
 }
 
 export default new AuthService();

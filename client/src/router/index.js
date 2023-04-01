@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import { useAuthStore } from "../stores/auth.store";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -82,6 +83,11 @@ const router = createRouter({
       name: "Dashboard",
       meta: {
         layout: "default",
+      },
+      beforeEnter: (to, from, next) => {
+        const authStore = useAuthStore()
+        if (!authStore.user) next({ name: 'Login', params: {} })
+        next()
       },
       component: () => import("../views/Dashboard.vue"),
     },
