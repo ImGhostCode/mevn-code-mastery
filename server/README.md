@@ -38,9 +38,9 @@
 
 ### CONTRIBUTOR
 
-- [x] [GET] /api/v1/contributor
-- [x] [GET] /api/v1/contributor/:id
-- [x] [POST] /api/v1/contributor
-- [x] [PUT] /api/v1/contributor/:id
-- [x] [DELETE] /api/v1/contributor/:id
-- [x] [GET] /api/v1/contributor/slug
+- [x] [GET] /api/v1/contributors
+- [x] [GET] /api/v1/contributors/:id
+- [x] [POST] /api/v1/contributors
+- [x] [PUT] /api/v1/contributors/:id
+- [x] [DELETE] /api/v1/contributors/:id
+- [x] [GET] /api/v1/contributors/slug
