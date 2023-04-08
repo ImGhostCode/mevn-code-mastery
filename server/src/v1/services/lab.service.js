@@ -1,8 +1,9 @@
 const _Lab = require("../models/_Lab.model");
+const ApiError = require("../utils/apiError");
 const ApiRes = require("../utils/apiRes");
 
 class labService {
-  constructor() {}
+  constructor() { }
 
   async create({
     title,
@@ -21,7 +22,7 @@ class labService {
     });
     console.log(lab);
     if (lab) {
-      return new ApiRes(400, "failed", "Lab already exists!");
+      throw new ApiError(400, "failed", "Lab already exists!");
     }
     const newLab = new _Lab({
       title,
@@ -41,14 +42,14 @@ class labService {
     );
   }
 
-  async findAllLab({}) {
+  async findAllLab({ }) {
     const labs = await _Lab.find({});
     return new ApiRes(200, "success", null, labs);
   }
 
   async findLabById({ id }) {
     const lab = await _Lab.findById(id);
-    if (!lab) return new ApiRes(400, "failed", "LabID not found", null);
+    if (!lab) throw new ApiError(400, "failed", "LabID not found");
     return new ApiRes(200, "success", null, lab);
   }
   async findLabBySlug({ slug }) {
@@ -58,7 +59,7 @@ class labService {
         $options: "i",
       },
     });
-    if (!lab) return new ApiRes(400, "failed", "Slug not found", null);
+    if (!lab) throw new ApiRes(400, "failed", "Slug not found");
     return new ApiRes(200, "success", null, lab);
   }
   async updateLab({ id, ...updatedFields }) {
@@ -73,7 +74,7 @@ class labService {
       { returnDocument: "after" }
     );
 
-    if (!lab) return new ApiRes(400, "failed", "LabID not found", null);
+    if (!lab) throw new ApiError(400, "failed", "LabID not found");
 
     return new ApiRes(200, "success", null, await lab.save());
   }

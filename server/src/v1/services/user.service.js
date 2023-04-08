@@ -1,22 +1,23 @@
 const _User = require("../models/_User.model");
+const ApiError = require("../utils/apiError");
 const ApiRes = require("../utils/apiRes");
 
 class userService {
-  constructor() {}
+  constructor() { }
 
-  async findAllUsers({}) {
+  async findAllUsers({ }) {
     const users = await _User.find({});
     return new ApiRes(200, "success", null, users);
   }
 
   async findUserById({ id }) {
     const user = await _User.findById(id);
-    if (!user) return new ApiRes(400, "failed", "UserId not found", null);
+    if (!user) throw new ApiError(400, "failed", "UserId not found");
     return new ApiRes(200, "success", null, user);
   }
   async updateUser({ id, ...updatedFields }) {
     const user = await _User.findById(id);
-    if (!user) return new ApiRes(400, "failed", "UserId not found", null);
+    if (!user) throw new ApiError(400, "failed", "UserId not found");
     Object.assign(user, updatedFields);
     return new ApiRes(200, "success", null, await user.save());
 

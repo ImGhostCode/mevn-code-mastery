@@ -8,7 +8,7 @@ module.exports = {
       const result = await userService.findAllUsers({});
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   getUserById: async (req, res, next) => {
@@ -18,7 +18,7 @@ module.exports = {
       const result = await userService.findUserById({ id });
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   updateUserById: async (req, res, next) => {
@@ -35,7 +35,7 @@ module.exports = {
       });
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   deleteUserById: async (req, res, next) => {
@@ -46,7 +46,7 @@ module.exports = {
       const result = await userService.deleteUserById({ id });
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
 };

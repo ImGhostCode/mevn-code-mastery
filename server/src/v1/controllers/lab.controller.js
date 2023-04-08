@@ -18,7 +18,7 @@ module.exports = {
       });
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
 
@@ -28,7 +28,7 @@ module.exports = {
       const result = await labService.findAllLab({});
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   getLabById: async (req, res, next) => {
@@ -39,7 +39,7 @@ module.exports = {
       return res.json(result);
     } catch (error) {
       console.log(error);
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   getLabBySlug: async (req, res, next) => {
@@ -50,7 +50,7 @@ module.exports = {
       return res.json(result);
     } catch (error) {
       console.log(error);
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   updateLabById: async (req, res, next) => {
@@ -72,7 +72,7 @@ module.exports = {
       });
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   deleteLabById: async (req, res, next) => {
@@ -83,7 +83,7 @@ module.exports = {
       const result = await labService.deleteLabById({ id });
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
 };

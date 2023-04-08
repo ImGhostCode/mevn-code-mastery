@@ -1,8 +1,9 @@
 const _Contributor = require("../models/_Contributor.model");
+const ApiError = require("../utils/apiError");
 const ApiRes = require("../utils/apiRes");
 
 class contributorService {
-  constructor() {}
+  constructor() { }
 
   async create({ name, imageUrl, url, bio, courses }) {
     const contributor = await _Contributor.findOne({
@@ -13,7 +14,7 @@ class contributorService {
     });
     console.log(contributor);
     if (contributor) {
-      return new ApiRes(400, "failed", "Contributor already exists!");
+      throw new ApiError(400, "failed", "Contributor already exists!");
     }
     const newContributor = new _Contributor({
       name,
@@ -31,7 +32,7 @@ class contributorService {
     );
   }
 
-  async findAllContributor({}) {
+  async findAllContributor({ }) {
     const contributors = await _Contributor.find({});
     return new ApiRes(200, "success", null, contributors);
   }
@@ -39,7 +40,7 @@ class contributorService {
   async findContributorById({ id }) {
     const contributor = await _Contributor.findById(id);
     if (!contributor)
-      return new ApiRes(400, "failed", "ContributorID not found", null);
+      throw new ApiError(400, "failed", "ContributorID not found");
     return new ApiRes(200, "success", null, contributor);
   }
   async findContributorBySlug({ slug }) {
@@ -49,13 +50,13 @@ class contributorService {
         $options: "i",
       },
     });
-    if (!contributor) return new ApiRes(400, "failed", "Slug not found", null);
+    if (!contributor) throw new ApiError(400, "failed", "Slug not found");
     return new ApiRes(200, "success", null, contributor);
   }
   async updateContributor({ id, ...updatedFields }) {
     const contributor = await _Contributor.findById(id);
     if (!contributor)
-      return new ApiRes(400, "failed", "ContributorID not found", null);
+      throw new ApiError(400, "failed", "ContributorID not found");
     Object.assign(contributor, updatedFields);
     return new ApiRes(200, "success", null, await contributor.save());
   }

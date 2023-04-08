@@ -98,6 +98,55 @@ Content-Type: application/json
         "tags": ["javascript", "node", "pro"],
         "students": 150
 }
+### Create course
+POST {{urlDev}}/
+Content-Type: application/json
+
+{
+     "title": "Modern JavaScript Full Course",
+        "description": "Learn how to build real-world applications with JavaScript",
+        "authorID": "640c83824c85ce0493226ce4",
+        "imgUrl": "https://fireship.io/courses/js/img/featured.webp",
+        "videoUrl": "https://player.vimeo.com/video/773378423",
+        "willLearn": "👶 The Basics of JavaScript-👨‍🎤 Advanced concepts broken down in a quick no-BS format-📰 Prepare for JS interviews by coding algorithms-🧪 Test Driven Development with Vitest-⚔️ Debugging and Error Handling-🎨 Build a text-to-image API with Node.js and OpenAI-🗯️ Learn modern browser APIs like Fetch-🍕 A great primer for more advanced Fireship courses",
+        "price": "20",
+        "chapters":[
+            {
+            "title": "Resources",
+            "description": "Source code and course resources"
+            },
+            {
+            "title": "JavaScript in 100 Seconds",
+            "description": "A quick introduction to the greatest programming language ever created"
+            },
+            {
+            "title": "JavaScript Crash Course",
+            "description": "101 concepts every JavaScript developer should know"
+            },
+            {
+            "title": "Prototype Chain",
+            "description": "How does Prototypal Inheritance work?"
+            },
+            {
+            "title": "Destructuring",
+            "description": "Use destructuring to work with objects with ease."
+            },
+            {
+            "title": " Spread",
+            "description": "Use the spread syntax to combine objects"
+            },
+            {
+            "title": "Optional Chaining",
+            "description": "Call object properties safely"
+            },
+            {
+            "title": "Nullish Coalescing",
+            "description": "How nullish coalescing is realted to truthy and falsy values"
+            }
+        ],
+        "tags": ["javascript", "node", "pro"],
+        "students": 150
+}
 
 ### Get all courses
 GET {{urlDev}}/

@@ -31,7 +31,7 @@ module.exports = {
       });
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
 
@@ -41,7 +41,7 @@ module.exports = {
       const result = await courseService.findAllCourse({});
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   getCourseById: async (req, res, next) => {
@@ -52,7 +52,7 @@ module.exports = {
       return res.json(result);
     } catch (error) {
       console.log(error);
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   getCourseBySlug: async (req, res, next) => {
@@ -63,7 +63,7 @@ module.exports = {
       return res.json(result);
     } catch (error) {
       console.log(error);
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   updateCourseById: async (req, res, next) => {
@@ -98,7 +98,7 @@ module.exports = {
       });
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   deleteCourseById: async (req, res, next) => {
@@ -109,7 +109,7 @@ module.exports = {
       const result = await courseService.deleteCourseById({ id });
       return res.json(result);
     } catch (error) {
-      return next(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
 };

@@ -14,7 +14,7 @@ module.exports = {
 
       return res.json(response);
     } catch (error) {
-      return res.json(new ApiError(400, "failed", error.message, null));
+      return res.json({ ...error, message: error.message })
     }
   },
   loginController: async (req, res, next) => {
@@ -27,7 +27,7 @@ module.exports = {
       });
       return res.json(response);
     } catch (error) {
-      return res.json(new ApiError(400, "failed", error, null));
+      return res.json({ ...error, message: error.message })
     }
   },
 };

@@ -1,8 +1,9 @@
 const _Course = require("../models/_Course.model");
+const ApiError = require("../utils/apiError");
 const ApiRes = require("../utils/apiRes");
 
 class courseService {
-  constructor() {}
+  constructor() { }
 
   async create({
     title,
@@ -24,7 +25,7 @@ class courseService {
     });
     console.log(course);
     if (course) {
-      return new ApiRes(400, "failed", "Course already exists!");
+      throw new ApiError(400, "failed", "Course already exists!");
     }
     const newCourse = new _Course({
       title,
@@ -47,14 +48,14 @@ class courseService {
     );
   }
 
-  async findAllCourse({}) {
+  async findAllCourse({ }) {
     const courses = await _Course.find({});
     return new ApiRes(200, "success", null, courses);
   }
 
   async findCourseById({ id }) {
     const course = await _Course.findById(id);
-    if (!course) return new ApiRes(400, "failed", "CourseID not found", null);
+    if (!course) throw new ApiError(400, "failed", "CourseID not found");
     return new ApiRes(200, "success", null, course);
   }
   async findCourseBySlug({ slug }) {
@@ -64,7 +65,7 @@ class courseService {
         $options: "i",
       },
     });
-    if (!course) return new ApiRes(400, "failed", "Slug not found", null);
+    if (!course) throw new ApiError(400, "failed", "Slug not found");
     return new ApiRes(200, "success", null, course);
   }
   async updateCourse({ id, ...updatedFields }) {
@@ -79,7 +80,7 @@ class courseService {
       { returnDocument: "after" }
     );
 
-    if (!course) return new ApiRes(400, "failed", "CourseID not found", null);
+    if (!course) throw new ApiError(400, "failed", "CourseID not found");
 
     return new ApiRes(200, "success", null, await course.save());
   }
