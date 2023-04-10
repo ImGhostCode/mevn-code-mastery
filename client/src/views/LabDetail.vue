@@ -11,7 +11,9 @@
                     <img src="https://fireship.io/contributors/img/jeff-delaney.webp" alt="author"
                         class="h-10 w-10 mr-3 rounded-full">
                     <div class="text-sm">
-                        <h4 class="mb-1">By Jeff Delaney</h4>
+                        <h4 class="mb-1">By <router-link
+                                :to="{ name: 'ContributorDetail', params: { slug: 'jeff-delaney' } }"
+                                class="text-yellow-500">Jeff Delaney</router-link></h4>
                         <p class="text-gray-400 text-xs">Posted {{
                             moment(apiResponse.updatedAt).format('ll') }}</p>
                     </div>

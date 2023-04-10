@@ -92,8 +92,8 @@ const router = createRouter({
       component: () => import("../views/Dashboard.vue"),
     },
     {
-      path: "/contributors",
-      name: "Contributors",
+      path: "/contributors/:slug",
+      name: "ContributorDetail",
       meta: {
         layout: "default",
       },
