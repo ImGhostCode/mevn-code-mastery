@@ -12,7 +12,7 @@ class UserService {
         ).data;
     }
 
-    async updateUser(data) {
+    async updateUser(id, data) {
 
         return await (
             await this.api.put(`/${id}`, data)

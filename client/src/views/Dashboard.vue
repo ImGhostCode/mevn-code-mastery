@@ -26,25 +26,29 @@
                 @click="isShow.update = !isShow.update">Update
                 address</button>
 
-            <form action="" method="post" v-if="isShow.update">
+            <form @submit.prevent="handleUpdateUser" v-if="isShow.update">
                 <div class="flex flex-col mb-8">
                     <label for="name">Name</label>
-                    <input type="text"
+                    <input type="text" v-model="dataUpdate.username"
                         class="bg-inherit border-slate-600 border-2 rounded-sm outline-none px-2 py-3 text-sm" id="name">
                 </div>
                 <div class="flex flex-col mb-8">
                     <label for="city">City</label>
-                    <input type="text"
+                    <input type="text" v-model="dataUpdate.city"
                         class="bg-inherit border-slate-600 border-2 rounded-sm outline-none px-2 py-3 text-sm" id="city">
                 </div>
                 <div class="flex flex-col mb-8">
                     <label for="phone">Phone</label>
-                    <input type="text"
+                    <input type="text" v-model="dataUpdate.phone"
                         class="bg-inherit border-slate-600 border-2 rounded-sm outline-none px-2 py-3 text-sm" id="phone">
                 </div>
-
                 <button
-                    class="uppercase text-white bg-green-500 px-3 mb-6 border-none outline-none py-2 text-[16px] font-medium">Save</button>
+                    class="uppercase text-white bg-green-500 px-3 mb-6 border-none outline-none py-2 text-[16px] font-medium"
+                    :disabled="userStore.isLoading">{{ userStore.isLoading ? "Saving..." : "Save" }}</button>
+
+
+                <p class="text-sm text-green-600 font-Roboto mb-3 font-bold" v-if="isShow.updateSuccessful">
+                    User update successful!</p>
 
             </form>
 
@@ -89,21 +93,16 @@
 import { onMounted, reactive, ref } from 'vue';
 import Course from '../components/Course.vue';
 import { useUserStore } from '../stores/user.store'
-import { useRoute } from 'vue-router';
 import { useAuthStore } from '../stores/auth.store';
 
-const { params } = useRoute()
 
 const isShow = ref({
     update: false,
-    subscription: false
+    subscription: false,
+    updateSuccessful: false
 })
 
-const dataUpdate = reactive({
-    username: '',
-    city: '',
-    phone: ''
-})
+
 const userStore = useUserStore()
 const authStore = useAuthStore()
 
@@ -112,7 +111,17 @@ onMounted(async () => {
     console.log(userStore.user);
 })
 
-function handleUpdateUser() {
+const dataUpdate = reactive({
+    username: '',
+    city: '',
+    phone: ''
+})
+
+
+async function handleUpdateUser() {
+    isShow.value.updateSuccessful = false
+    await userStore.updateUser(dataUpdate)
+    isShow.value.updateSuccessful = true
 
 }
 

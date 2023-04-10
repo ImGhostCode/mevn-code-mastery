@@ -24,13 +24,13 @@ export const useUserStore = defineStore("user", () => {
 
     async function updateUser(data) {
         isLoading.value = true;
-        user.value = null;
         err.value = null;
         try {
-            const res = await userService.updateUser(data);
+            const res = await userService.updateUser(user.value._id, data);
             if (res.code === 400) throw new Error(res.message);
             user.value = res.data;
         } catch (error) {
+            console.log(error);
             err.value = error.message;
         } finally {
             isLoading.value = false;
