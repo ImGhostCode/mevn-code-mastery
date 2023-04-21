@@ -28,6 +28,8 @@ export const useUserStore = defineStore("user", () => {
         try {
             const res = await userService.updateUser(user.value._id, data);
             if (res.code === 400) throw new Error(res.message);
+            localStorage.removeItem('userInfo')
+            localStorage.setItem("userInfo", JSON.stringify(res.data));
             user.value = res.data;
         } catch (error) {
             console.log(error);

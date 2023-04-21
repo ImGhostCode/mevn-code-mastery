@@ -2,6 +2,7 @@ const _User = require("../models/_User.model");
 const ApiError = require("../utils/apiError");
 const ApiRes = require("../utils/apiRes");
 const bcrypt = require("bcryptjs");
+const generateToken = require("../utils/generateToken");
 
 class AuthService {
   constructor() { }
@@ -25,8 +26,15 @@ class AuthService {
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid)
       throw new ApiError(400, "failed", "Invalid Password");
-    return new ApiRes(200, "success", "Login successfull", user);
+    return new ApiRes(200, "success", "Login successfull", { ...user._doc, token: generateToken(user._id), });
   }
+
+  async deleteUser({ userId }) {
+    const userDeleted = await _User.findByIdAndDelete(userId, { new: true })
+    if (!userDeleted) throw new ApiError(404, 'failed', "UserId Not Found", null)
+    return new ApiResponse(200, 'success', 'Delete a user successful', userDeleted)
+  }
+
 }
 
 module.exports = AuthService;

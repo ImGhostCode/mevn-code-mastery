@@ -28,7 +28,7 @@
 
 - [x] [POST] /api/v1/auth/login
 - [x] [POST] /api/v1/auth/register
-- [] [POST] /api/v1/auth/logout
+- [x] [POST] /api/v1/auth/logout
 
 ### Account
 

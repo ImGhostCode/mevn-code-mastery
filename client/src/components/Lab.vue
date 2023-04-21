@@ -1,5 +1,5 @@
 <template>
-    <div class="card rounded-xl overflow-hidden mb-12 min-h-[400px]">
+    <div class="card rounded-xl overflow-hidden mb-12 min-h-[400px] hover:scale-105 transition-all">
         <router-link :to="{ name: 'LabDetail', params: { slug: props.info.slug } }" class="h-full block">
             <div class="card-header">
                 <img :src="props.info.imgUrl" :alt="props.info.slug">

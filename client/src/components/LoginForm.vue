@@ -59,7 +59,7 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 import { RouterLink } from 'vue-router'
 import { useAuthStore } from '../stores/auth.store';
 import { useRouter } from "vue-router"

@@ -1,7 +1,7 @@
 <template>
   <main class="w-[75%] mx-auto my-10">
     <div
-      class="slider flex flew-row justify-between bg-gradient-to-r from-cyan-500 to-blue-500 h-72 gap-4 rounded-2xl mb-10 overflow-hidden"
+      class="slider hover:shadow-md hover:shadow-white transition-shadow flex flew-row justify-between bg-gradient-to-r from-cyan-500 to-blue-500 h-72 gap-4 rounded-2xl mb-10 overflow-hidden"
       v-if="topCourse">
       <div class="flex justify-center flex-col p-10 basis-1/2">
         <h1 class="text-4xl font-semibold mb-4">{{ topCourse.title }}</h1>

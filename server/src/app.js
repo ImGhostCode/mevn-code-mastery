@@ -4,6 +4,10 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const compression = require("compression");
 const ApiError = require("./v1/utils/apiError");
+const cookieParser = require('cookie-parser')
+const path = require('path')
+// file public
+app.use('/public', express.static(path.join(__dirname, '/v1/public')))
 
 //user middleware
 app.use(helmet());
@@ -18,6 +22,9 @@ app.use(
     extended: true,
   })
 );
+
+// cookie
+app.use(cookieParser())
 
 //router
 app.use("/api/v1", require("./v1/routes/index.router"));

@@ -117,7 +117,7 @@
                 allowfullscreen></iframe>
         </div>
         <div class="px-4 py-5 bg-gray-600 rounded-lg mb-5 mx-auto w-max ">
-            <a href="#" class="inline-flex items-center">
+            <div class="inline-flex items-center">
                 <img src="https://fireship.io/contributors/img/jeff-delaney.webp" alt="author"
                     class="h-10 w-10 mr-3 rounded-full">
                 <div class="text-sm">
@@ -128,7 +128,7 @@
                         Supaship
                         YouTube channel</p>
                 </div>
-            </a>
+            </div>
         </div>
 
         <div class="mx-auto w-24 h-1 my-24 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full"></div>

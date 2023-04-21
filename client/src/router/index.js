@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import { useAuthStore } from "../stores/auth.store";
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -84,7 +85,7 @@ const router = createRouter({
       meta: {
         layout: "default",
       },
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         const authStore = useAuthStore()
         if (!authStore.user) next({ name: 'Login', params: {} })
         next()
@@ -109,5 +110,11 @@ const router = createRouter({
     },
   ],
 });
+
+router.beforeEach(async (to, from, next) => {
+  const authStore = useAuthStore()
+  await authStore.getUserStored()
+  next()
+})
 
 export default router;

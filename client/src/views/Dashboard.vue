@@ -12,9 +12,10 @@
 
             <div class="mb-4">Account Email: <span class="text-white font-bold">{{ userStore.user.email }}</span></div>
 
-            <a href="#" class="block text-black bg-white w-max py-2 px-3 uppercase text-sm font-semibold">
+            <button @click="handleSignout"
+                class="block text-black bg-white w-max py-2 px-3 uppercase text-sm font-semibold">
                 sign out
-            </a>
+            </button>
         </div>
 
         <h1 class="text-5xl font-bold text-center uppercase mb-4">Manage account</h1>
@@ -81,7 +82,7 @@
 
         <div class="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-red-600 to-red-400 rounded-full"></div>
 
-        <button
+        <button @click="handleDeleteAccount"
             class="block text-white bg-red-600 font-semibold px-3 mb-6 border-none outline-none py-2 text-[16px] font-Roboto">Delete
             this Account</button>
     </div>
@@ -94,7 +95,7 @@ import { onMounted, reactive, ref } from 'vue';
 import Course from '../components/Course.vue';
 import { useUserStore } from '../stores/user.store'
 import { useAuthStore } from '../stores/auth.store';
-
+import { useRouter } from 'vue-router';
 
 const isShow = ref({
     update: false,
@@ -105,10 +106,20 @@ const isShow = ref({
 
 const userStore = useUserStore()
 const authStore = useAuthStore()
+const router = useRouter()
+
+async function handleSignout() {
+    await authStore.logout()
+    if (authStore.err) {
+        console.log(authStore.err);
+        return
+    }
+    router.push({ name: "Login", params: {} })
+}
 
 onMounted(async () => {
     await userStore.getUserById(authStore?.user?._id)
-    console.log(userStore.user);
+
 })
 
 const dataUpdate = reactive({
@@ -123,6 +134,19 @@ async function handleUpdateUser() {
     await userStore.updateUser(dataUpdate)
     isShow.value.updateSuccessful = true
 
+}
+
+
+async function handleDeleteAccount() {
+    if (confirm('Are you sure ?')) {
+        await authStore.deleteAccount(authStore.user._id)
+        await authStore.logout()
+        if (authStore.err) {
+            console.log(authStore.err);
+            return
+        }
+        router.push({ name: "Login", params: {} })
+    }
 }
 
 </script>

@@ -15,6 +15,26 @@ class AuthService {
       await this.api.post("/login", data)
     ).data;
   }
+
+  async logout() {
+    return await (
+      await this.api.post("/logout")
+    ).data;
+  }
+  async deleteAccount(userId) {
+    return await (
+      await this.api.delete(`/${userId}`)
+    ).data;
+  }
+  async editAccount(userId, image) {
+    return await (
+      await this.api.put(`/${userId}`, image, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+    ).data;
+  }
 }
 
 export default new AuthService();
