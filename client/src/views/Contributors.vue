@@ -5,8 +5,8 @@
             <h3 class="text-4xl  text-yellow-400 font-extrabold uppercase mb-10 font-Cubano">{{
                 contributorStore.contributor.name }}</h3>
             <div class="h-80 w-80 rounded-full overflow-hidden my-8">
-                <img :src="contributorStore.contributor.imageUrl" :alt="contributorStore.contributor.slug"
-                    class="object-cover h-full w-full">
+                <img :src="contributorStore.contributor.imageUrl.toString().startsWith('https') ? contributorStore.contributor.imageUrl : 'http://localhost:3051/public/images/' + contributorStore.contributor.imageUrl"
+                    :alt="contributorStore.contributor.slug" class="object-cover h-full w-full">
             </div>
 
             <ul class="flex gap-1 font-bold  text-xs uppercase text-black mb-8">
@@ -36,17 +36,20 @@
 import { onMounted } from 'vue';
 import Course from '../components/Course.vue';
 import Lab from '../components/Lab.vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useContributorStore } from '../stores/contributor.store';
 
 const { params } = useRoute()
-
+const router = useRouter()
 
 const contributorStore = useContributorStore()
 
 onMounted(async () => {
     await contributorStore.getContributorBySlug(params.slug)
-    console.log(contributorStore.contributor);
+    console.log(contributorStore.result);
+    if (contributorStore.result.code === 404) {
+        router.push({ name: "NotFound" })
+    }
 })
 
 </script>

@@ -2,6 +2,7 @@ const _Contributor = require("../models/_Contributor.model");
 const ApiError = require("../utils/apiError");
 const ApiRes = require("../utils/apiRes");
 
+
 class contributorService {
   constructor() { }
 
@@ -27,7 +28,7 @@ class contributorService {
     return new ApiRes(
       200,
       "success",
-      "Contributor creared successfull",
+      "Contributor created successfull",
       await newContributor.save()
     );
   }
@@ -50,13 +51,13 @@ class contributorService {
         $options: "i",
       },
     });
-    if (!contributor) throw new ApiError(400, "failed", "Slug not found");
+    if (!contributor) throw new ApiError(404, "failed", "Slug not found");
     return new ApiRes(200, "success", null, contributor);
   }
   async updateContributor({ id, ...updatedFields }) {
     const contributor = await _Contributor.findById(id);
     if (!contributor)
-      throw new ApiError(400, "failed", "ContributorID not found");
+      throw new ApiError(404, "failed", "ContributorID not found");
     Object.assign(contributor, updatedFields);
     return new ApiRes(200, "success", null, await contributor.save());
   }

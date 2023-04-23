@@ -43,6 +43,10 @@ const userSchema = new mongoose.Schema(
       trim: true,
     },
     subscriptions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
+    contributor: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Contributor'
+    }
   },
   {
     timestamps: true,

@@ -19,6 +19,16 @@ class ContributorService {
         ).data;
     }
 
+    async createContributor(data) {
+        return await (
+            await this.api.post('/', data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+        ).data;
+    }
+
     async updateContributor(id, data) {
 
         return await (

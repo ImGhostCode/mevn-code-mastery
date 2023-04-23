@@ -5,7 +5,6 @@ const { jwt: { jwt_secret } } = require('../config/index')
 
 const verifyToken = async (req, res, next) => {
     let token
-
     if (
         req.cookies['accessToken'] ||
         req.headers.authorization &&

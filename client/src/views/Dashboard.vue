@@ -21,6 +21,12 @@
         <h1 class="text-5xl font-bold text-center uppercase mb-4">Manage account</h1>
         <div class="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>
 
+        <button
+            class="font-Roboto text-yellow-400 block uppercase  bg-blue-600 px-3 mb-6 border-none outline-none py-2 text-[16px] font-medium"
+            @click="isShow.register = !isShow.register">Register
+            Contributor</button>
+
+        <RegisterContributor v-if="isShow.register" @show="() => isShow.register = !isShow.register" />
         <div class="font-Roboto">
             <button
                 class="block uppercase text-white bg-blue-600 px-3 mb-6 border-none outline-none py-2 text-[16px] font-medium"
@@ -96,11 +102,13 @@ import Course from '../components/Course.vue';
 import { useUserStore } from '../stores/user.store'
 import { useAuthStore } from '../stores/auth.store';
 import { useRouter } from 'vue-router';
+import RegisterContributor from '../components/RegisterContributor.vue';
 
 const isShow = ref({
     update: false,
     subscription: false,
-    updateSuccessful: false
+    updateSuccessful: false,
+    register: false
 })
 
 
