@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema(
       trim: true,
     },
     subscriptions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
-    contributor: {
+    contributorId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Contributor'
     }

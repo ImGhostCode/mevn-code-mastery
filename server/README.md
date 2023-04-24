@@ -11,6 +11,14 @@
 - [x] [PUT] /api/v1/courses/:id
 - [x] [DELETE] /api/v1/courses/:id
 
+### USER
+
+- [x] [GET] /api/v1/users/:id
+- [x] [POST] /api/v1/users/enroll/:id
+- [x] [GET] /api/v1/users/
+- [x] [PUT] /api/v1/users/:id
+- [x] [DELETE] /api/v1/users/:id
+
 ### LABS
 
 - [x] [GET] /api/v1/labs

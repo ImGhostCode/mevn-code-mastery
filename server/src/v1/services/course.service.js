@@ -80,7 +80,7 @@ class courseService {
       { returnDocument: "after" }
     );
 
-    if (!course) throw new ApiError(400, "failed", "CourseID not found");
+    if (!course) throw new ApiError(404, "failed", "CourseID not found");
 
     return new ApiRes(200, "success", null, await course.save());
   }

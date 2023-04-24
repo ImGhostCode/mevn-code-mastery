@@ -18,6 +18,11 @@ class UserService {
             await this.api.put(`/${id}`, data)
         ).data;
     }
+    async enrollCourse(id, courseId) {
+        return await (
+            await this.api.post(`/enroll/${id}`, { courseId })
+        ).data;
+    }
 
 
 

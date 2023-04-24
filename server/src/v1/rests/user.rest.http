@@ -18,6 +18,13 @@ Content-Type:  application/json
     "city": "tg2",
     "phone": "0123456789 updated2"
 }
+### Enroll course 
+POST {{urlDev}}/enroll/6445ccbb689111cca78e59c4
+Content-Type:  application/json 
+
+{
+    "courseId": "6430db5ac4f468fc3d6c7dd2" 
+}
 
 ### delete user by id
 DELETE {{urlDev}}/users/64072da6bd3a4aaea6b60b16

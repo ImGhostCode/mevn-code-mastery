@@ -75,7 +75,7 @@
 
             <router-link v-if="authStore.user" :to="{ name: 'Dashboard', params: {} }" class="relative flex">
                 <img src="https://fireship.io/img/ui/avatar.svg" alt="avatar" class="h-12 w-12 my-auto">
-                <span class="absolute bg-slate-800 px-2 rounded-lg text-sm bottom-0">Basic</span>
+                <span class="absolute bg-slate-800 px-2 rounded-lg text-sm bottom-0">{{ authStore.user.proStatus }}</span>
             </router-link>
 
         </div>

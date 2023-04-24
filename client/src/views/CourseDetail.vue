@@ -150,14 +150,15 @@
         </div>
 
 
-        <div class="text-center">
+        <div class="text-center" v-if="!userStore?.user?.subscriptions.includes(apiResponse._id) || showEnrol">
             <h1 class="text-4xl  text-white font-extrabold uppercase mb-8">
                 how to enroll
             </h1>
 
             <div class="p-8 border-2 border-blue-600 rounded-lg mx-auto w-max  ">
-                <a href="#"><span class="uppercase text-xl text-blue-500">buy this course </span>for <span>${{
-                    apiResponse.price }}</span>.</a>
+                <button @click="handleEnroll"><span class="uppercase text-xl text-blue-500">buy this course </span>for
+                    <span>${{
+                        apiResponse.price }}</span>.</button>
             </div>
         </div>
 
@@ -202,15 +203,23 @@ onMounted(async () => {
 </script> -->
 
 <script setup>
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { onMounted, ref } from 'vue';
 import CourseService from '../services/course.service'
 import moment from 'moment'
+import { useUserStore } from '../stores/user.store'
+import { useAuthStore } from '../stores/auth.store';
+import { useToast } from 'vue-toast-notification';
 
+const authStore = useAuthStore()
+const $toast = useToast();
+
+const userStore = useUserStore()
 const route = useRoute();
+const router = useRouter();
 const apiResponse = ref(null);
 const error = ref(null);
-
+const showEnrol = ref(true)
 const fetchData = async () => {
     try {
         const { data } = await CourseService.getBySlug(route.params.slug);
@@ -219,6 +228,21 @@ const fetchData = async () => {
         error.value = err.messsage
     }
 };
+
+async function handleEnroll() {
+
+    if (authStore.user) {
+        showEnrol.value = false
+        await userStore.enrollCourse(authStore.user._id, apiResponse.value._id)
+        if (userStore.err) {
+            $toast.error(userStore.err)
+            return
+        }
+        $toast.success(userStore.result.message)
+    } else {
+        router.push({ name: 'Login' })
+    }
+}
 
 onMounted(() => {
     fetchData();

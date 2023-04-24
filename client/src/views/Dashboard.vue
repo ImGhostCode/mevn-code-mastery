@@ -21,10 +21,14 @@
         <h1 class="text-5xl font-bold text-center uppercase mb-4">Manage account</h1>
         <div class="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"></div>
 
-        <button
-            class="font-Roboto text-yellow-400 block uppercase  bg-blue-600 px-3 mb-6 border-none outline-none py-2 text-[16px] font-medium"
+        <button v-if="!userStore.user.contributorId"
+            class="font-Roboto text-white block uppercase  bg-blue-600 px-3 mb-6 border-none outline-none py-2 text-[16px] font-medium"
             @click="isShow.register = !isShow.register">Register
             Contributor</button>
+        <router-link :to="{ name: 'ContributorDetail', params: { slug: userStore.user.contributorId.slug } }"
+            v-if="userStore.user.contributorId"
+            class="font-Roboto text-white block w-max uppercase  bg-blue-600 px-3 mb-6 border-none outline-none py-2 text-[16px] font-medium">My
+            profile</router-link>
 
         <RegisterContributor v-if="isShow.register" @show="() => isShow.register = !isShow.register" />
         <div class="font-Roboto">
@@ -65,22 +69,9 @@
 
 
             <ul v-if="isShow.subscription" class="grid grid-cols-2 gap-4">
-                <!-- <li>
-                    <Course></Course>
+                <li v-for="course in userStore.user.subscriptions" :key="course._id">
+                    <Course :info="course"></Course>
                 </li>
-                <li>
-                    <Course></Course>
-                </li>
-                <li>
-                    <Course></Course>
-                </li>
-                <li>
-                    <Course></Course>
-                </li>
-                <li>
-                    <Course></Course>
-                </li> -->
-                test
             </ul>
 
         </div>

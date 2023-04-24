@@ -48,7 +48,7 @@
                 </div>
                 <button type="submit"
                     class="uppercase text-white bg-green-500 px-3 mb-6 border-none outline-none py-2 text-[16px] font-medium">
-                    Save</button>
+                    Submit</button>
 
 
                 <!-- <p class="text-sm text-green-600 font-Roboto mb-3 font-bold" v-if="isShow.updateSuccessful">

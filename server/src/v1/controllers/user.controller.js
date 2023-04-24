@@ -38,6 +38,18 @@ module.exports = {
       return res.json({ ...error, message: error.message })
     }
   },
+  enrollCourse: async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const { courseId } = req.body;
+      console.log({ id, courseId });
+      const userService = new UserService();
+      const result = await userService.enrollCourse({ id, courseId })
+      return res.json(result);
+    } catch (error) {
+      return res.json({ ...error, message: error.message })
+    }
+  },
   deleteUserById: async (req, res, next) => {
     try {
       const { id } = req.params;
