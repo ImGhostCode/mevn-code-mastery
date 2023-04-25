@@ -38,11 +38,6 @@
 - [x] [POST] /api/v1/auth/register
 - [x] [POST] /api/v1/auth/logout
 
-### Account
-
-- [x] [GET] /api/v1/users/:id
-- [x] [PUT] /api/v1/users/:id
-- [x] [DELETE] /api/v1/users/:id
 
 ### CONTRIBUTOR
 
