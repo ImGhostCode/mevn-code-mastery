@@ -1,4 +1,5 @@
 const _Contributor = require("../models/_Contributor.model");
+const _User = require("../models/_User.model");
 const ApiError = require("../utils/apiError");
 const ApiRes = require("../utils/apiRes");
 
@@ -6,7 +7,7 @@ const ApiRes = require("../utils/apiRes");
 class contributorService {
   constructor() { }
 
-  async create({ name, imageUrl, url, bio, courses }) {
+  async create({ name, imageUrl, url, bio, courses, userId }) {
     const contributor = await _Contributor.findOne({
       name: {
         $regex: new RegExp(name),
@@ -24,6 +25,12 @@ class contributorService {
       bio,
       courses,
     });
+
+    await _User.findOneAndUpdate({ _id: userId }, {
+      $set: {
+        contributorId: newContributor._id
+      }
+    })
 
     return new ApiRes(
       200,
@@ -50,7 +57,7 @@ class contributorService {
         $regex: new RegExp(slug),
         $options: "i",
       },
-    });
+    }).populate('courses').populate('labs');
     if (!contributor) throw new ApiError(404, "failed", "Slug not found");
     return new ApiRes(200, "success", null, contributor);
   }

@@ -58,7 +58,7 @@ class labService {
         $regex: new RegExp(slug),
         $options: "i",
       },
-    });
+    }).populate('authorID');
     if (!lab) throw new ApiRes(400, "failed", "Slug not found");
     return new ApiRes(200, "success", null, lab);
   }

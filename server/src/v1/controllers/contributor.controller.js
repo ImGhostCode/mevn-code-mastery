@@ -13,7 +13,7 @@ module.exports = {
     try {
 
       let { newContributor } = req.body;
-
+      const { _id: userId } = req.user
       newContributor = JSON.parse(newContributor)
       const contributorService = new ContributorService();
       if (!newContributor.name || !newContributor.url || !newContributor.bio || !req.file) {
@@ -28,7 +28,7 @@ module.exports = {
       // let urlPic = response.secure_url
       // console.log({ urlPic });/
       const result = await contributorService.create({
-        ...newContributor, imageUrl: req.file.filename
+        ...newContributor, imageUrl: req.file.filename, userId
       });
       return res.json(result);
 

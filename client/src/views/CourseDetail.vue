@@ -118,15 +118,14 @@
         </div>
         <div class="px-4 py-5 bg-gray-600 rounded-lg mb-5 mx-auto w-max ">
             <div class="inline-flex items-center">
-                <img src="https://fireship.io/contributors/img/jeff-delaney.webp" alt="author"
-                    class="h-10 w-10 mr-3 rounded-full">
+                <img :src="apiResponse.authorID.imageUrl.toString().startsWith('https') ? apiResponse.authorID.imageUrl : 'http://localhost:3051/public/images/' + apiResponse.authorID.imageUrl"
+                    :alt="apiResponse.authorID.slug" class="h-10 w-10 mr-3 rounded-full">
                 <div class="text-sm">
                     <h4 class="mb-1">Taught by <router-link
-                            :to="{ name: 'ContributorDetail', params: { slug: 'jeff-delaney' } }"
-                            class="text-yellow-500">Jeff Delaney</router-link></h4>
-                    <p class="text-gray-400 text-xs font-Roboto">Senior Engineering Manager at Nx && that guy from the
-                        Supaship
-                        YouTube channel</p>
+                            :to="{ name: 'ContributorDetail', params: { slug: apiResponse.authorID.slug } }"
+                            class="text-yellow-500">{{
+                                apiResponse.authorID.name }}</router-link></h4>
+                    <p class="text-gray-400 text-xs font-Roboto">{{ apiResponse.authorID.bio }}</p>
                 </div>
             </div>
         </div>
@@ -136,10 +135,10 @@
         <div class="mb-8">
             <div class="text-4xl text-white font-extrabold uppercase mb-5">What will I learn?</div>
             <ul class="font-Roboto text-gray-300 list-disc">
-                <li class="">Master the Basics of Supabase</li>
-                <li class="">Build interactive UI components with React</li>
+                <li v-for="learn in apiResponse.willLearn.split(/\r?\n/)" class="">{{ learn }}</li>
+                <!-- <li class="">Build interactive UI components with React</li>
                 <li class="">Type-safe queries with TypeScript</li>
-                <li class="">User Authentication and Row-level Security</li>
+                <li class="">User Authentication and Row-level Security</li> -->
             </ul>
         </div>
 

@@ -15,7 +15,9 @@ export const useUserStore = defineStore("user", () => {
         try {
             const res = await userService.getUserById(id);
             if (res.code === 400 || res.code === 401 || res.code === 403 || res.code === 404) throw new Error(res.message);
-            console.log(res.data);
+            // console.log(res.data);
+            localStorage.removeItem('userInfo')
+            localStorage.setItem("userInfo", JSON.stringify(res.data));
             user.value = res.data;
         } catch (error) {
             err.value = error.message;

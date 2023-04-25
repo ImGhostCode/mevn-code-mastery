@@ -1,3 +1,0 @@
-<template>
-    course detail
-</template>

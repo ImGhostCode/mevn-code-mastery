@@ -30,7 +30,7 @@ export const useContributorStore = defineStore("contributor", () => {
         err.value = null;
         try {
             const res = await contributorService.getContributorBySlug(slug);
-            console.log(res);
+            // console.log(res);
             result.value = res
             if (res.code === 400) throw new Error(res.message);
             contributor.value = res.data;

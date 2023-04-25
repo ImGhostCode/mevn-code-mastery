@@ -14,7 +14,7 @@
             <form @submit.prevent="handleRegister" enctype="multipart/form-data">
                 <div class=" flex flex-col mb-8">
                     <label for="name">Name</label>
-                    <input type="text" v-model="newContributor.name" name="name"
+                    <input required type="text" v-model="newContributor.name" name="name"
                         class="bg-inherit border-slate-600 border-2 rounded-sm outline-none px-2 py-3 text-sm" id="name">
                 </div>
                 <div class="flex flex-col mb-8">
@@ -22,28 +22,28 @@
                         <img class="h-32 w-32 mx-auto rounded-full" :src="url || 'https://fireship.io/img/ui/avatar.svg'"
                             alt="av">
                     </label>
-                    <input type="file" name="pic" id="pic" accept="image/png, image/jpeg" @change="onFileSelected" hidden
-                        class="bg-inherit border-slate-600 border-2 rounded-sm outline-none px-2 py-3 text-sm">
+                    <input required type="file" name="pic" id="pic" accept="image/png, image/jpeg" @change="onFileSelected"
+                        hidden class="bg-inherit border-slate-600 border-2 rounded-sm outline-none px-2 py-3 text-sm">
                 </div>
                 <div class="flex flex-col mb-8">
                     <label for="bio">Bio</label>
-                    <input type="text" v-model="newContributor.bio" name="bio"
+                    <input required type="text" v-model="newContributor.bio" name="bio"
                         class="bg-inherit border-slate-600 border-2 rounded-sm outline-none px-2 py-3 text-sm" id="bio">
                 </div>
                 <div class="flex flex-col mb-8">
                     <label for="github">Github</label>
-                    <input type="text" v-model="newContributor.url[0].url" name="github"
+                    <input required type="text" v-model="newContributor.url[0].url" name="github"
                         class="bg-inherit border-slate-600 border-2 rounded-sm outline-none px-2 py-3 text-sm" id="github">
                 </div>
                 <div class="flex flex-col mb-8">
                     <label for="linkedin">Linkedin</label>
-                    <input type="text" v-model="newContributor.url[1].url" name="linkedin"
+                    <input required type="text" v-model="newContributor.url[1].url" name="linkedin"
                         class="bg-inherit border-slate-600 border-2 rounded-sm outline-none px-2 py-3 text-sm"
                         id="linkedin">
                 </div>
                 <div class="flex flex-col mb-8">
                     <label for="youtube">Youtube</label>
-                    <input type="text" v-model="newContributor.url[2].url"
+                    <input required type="text" v-model="newContributor.url[2].url"
                         class="bg-inherit border-slate-600 border-2 rounded-sm outline-none px-2 py-3 text-sm" id="youtube">
                 </div>
                 <button type="submit"
@@ -63,6 +63,9 @@
 import { useToast } from 'vue-toast-notification';
 import { ref, reactive } from 'vue'
 import { useContributorStore } from '../stores/contributor.store'
+import { useUserStore } from '../stores/user.store'
+import { useAuthStore } from '../stores/auth.store';
+import { useRouter } from 'vue-router';
 const selectedFile = ref(null)
 const url = ref(null)
 const newContributor = reactive({
@@ -70,6 +73,8 @@ const newContributor = reactive({
 })
 const emits = defineEmits([['show']])
 const contributorStore = useContributorStore()
+const userStore = useUserStore()
+const authStore = useAuthStore()
 const $toast = useToast();
 
 const onFileSelected = (event) => {
@@ -91,5 +96,8 @@ async function handleRegister() {
     }
     $toast.success(contributorStore.result.message)
     emits('show')
+    await userStore.getUserById(authStore?.user?._id)
+    authStore.user = userStore.user
+
 }
 </script>

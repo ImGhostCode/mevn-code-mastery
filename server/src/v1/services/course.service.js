@@ -1,4 +1,5 @@
 const _Course = require("../models/_Course.model");
+const _Contributor = require("../models/_Contributor.model");
 const ApiError = require("../utils/apiError");
 const ApiRes = require("../utils/apiRes");
 
@@ -40,6 +41,12 @@ class courseService {
       students,
     });
 
+    await _Contributor.findByIdAndUpdate(authorID, {
+      $push: {
+        courses: newCourse._id
+      }
+    })
+
     return new ApiRes(
       200,
       "success",
@@ -49,7 +56,7 @@ class courseService {
   }
 
   async findAllCourse({ }) {
-    const courses = await _Course.find({});
+    const courses = await _Course.find({}).sort({ updatedAt: -1 });
     return new ApiRes(200, "success", null, courses);
   }
 
@@ -64,7 +71,7 @@ class courseService {
         $regex: new RegExp(slug),
         $options: "i",
       },
-    });
+    }).populate('authorID');
     if (!course) throw new ApiError(400, "failed", "Slug not found");
     return new ApiRes(200, "success", null, course);
   }

@@ -22,6 +22,11 @@ class CourseService {
       await this.api.get(`/slug/${slug}`)
     ).data;
   }
+  async createNewCourse(data) {
+    return await (
+      await this.api.post('/', data)
+    ).data;
+  }
 }
 
 export default new CourseService();

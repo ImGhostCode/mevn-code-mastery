@@ -8,12 +8,12 @@
             </div>
             <div class="px-4 py-5 bg-gray-600 rounded-lg mb-5">
                 <a href="#" class="inline-flex items-center">
-                    <img src="https://fireship.io/contributors/img/jeff-delaney.webp" alt="author"
+                    <img :src="apiResponse.authorID.imageUrl" :alt="apiResponse.authorID.slug"
                         class="h-10 w-10 mr-3 rounded-full">
                     <div class="text-sm">
                         <h4 class="mb-1">By <router-link
-                                :to="{ name: 'ContributorDetail', params: { slug: 'jeff-delaney' } }"
-                                class="text-yellow-500">Jeff Delaney</router-link></h4>
+                                :to="{ name: 'ContributorDetail', params: { slug: apiResponse.authorID.slug } }"
+                                class="text-yellow-500">{{ apiResponse.authorID.name }}</router-link></h4>
                         <p class="text-gray-400 text-xs">Posted {{
                             moment(apiResponse.updatedAt).format('ll') }}</p>
                     </div>

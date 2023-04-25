@@ -118,7 +118,7 @@ async function handleSignout() {
 
 onMounted(async () => {
     await userStore.getUserById(authStore?.user?._id)
-
+    console.log(userStore.user);
 })
 
 const dataUpdate = reactive({

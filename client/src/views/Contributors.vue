@@ -19,12 +19,28 @@
 
         <div class="">
             <h3 class="text-4xl  text-white font-extrabold uppercase mb-10 font-Cubano">Lessons</h3>
-            <div class="grid grid-cols-4 gap-6 ">
-                <!-- <course></course>
-                <course></course>
-                <course></course>
-                <course></course> -->
+            <div class="grid grid-cols-4 gap-6 mb-8">
+                <course v-for="course in contributorStore.contributor.courses" :key="course._id" :info="course"></course>
+                <lab v-for="lab in contributorStore.contributor.labs" :key="lab._id" :info="lab"></lab>
             </div>
+            <div v-if="userStore?.user.contributorId._id === contributorStore.contributor._id" class="flex mb-8">
+                <button @click="isShow.newCourse = !isShow.newCourse"
+                    class="border-2 rounded-lg px-2 py-1  hover:text-purple-600 border-blue-500 mr-2"><span
+                        class="inline-block"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg></span> New Course
+                </button>
+
+                <button class="border-2 rounded-lg px-2 py-1  hover:text-purple-600 border-blue-500"><span
+                        class="inline-block"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg></span> New Lab
+                </button>
+            </div>
+            <new-course-form v-if="isShow.newCourse" @show="isShow.newCourse = !isShow.newCourse" />
+
         </div>
     </div>
     <div class="" v-else-if="contributorStore.err">{{ contributorStore.err }}</div>
@@ -33,20 +49,32 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, reactive } from 'vue';
 import Course from '../components/Course.vue';
 import Lab from '../components/Lab.vue';
+import NewCourseForm from '../components/NewCourseForm.vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useContributorStore } from '../stores/contributor.store';
+import { useAuthStore } from '../stores/auth.store';
+import { useUserStore } from '../stores/user.store'
 
 const { params } = useRoute()
 const router = useRouter()
 
+const userStore = useUserStore()
 const contributorStore = useContributorStore()
+const authStore = useAuthStore()
+
+const isShow = reactive({
+    newCourse: false,
+    newLab: false
+})
 
 onMounted(async () => {
+    // console.log(userStore.user);
+    userStore.user = JSON.parse(localStorage.getItem('userInfo'))
     await contributorStore.getContributorBySlug(params.slug)
-    console.log(contributorStore.result);
+    // console.log(contributorStore.result);
     if (contributorStore.result.code === 404) {
         router.push({ name: "NotFound" })
     }
