@@ -23,7 +23,7 @@
                 <course v-for="course in contributorStore.contributor.courses" :key="course._id" :info="course"></course>
                 <lab v-for="lab in contributorStore.contributor.labs" :key="lab._id" :info="lab"></lab>
             </div>
-            <div v-if="userStore?.user.contributorId._id === contributorStore.contributor._id" class="flex mb-8">
+            <div v-if="userStore?.user?.contributorId?._id === contributorStore?.contributor?._id" class="flex mb-8">
                 <button @click="isShow.newCourse = !isShow.newCourse"
                     class="border-2 rounded-lg px-2 py-1  hover:text-purple-600 border-blue-500 mr-2"><span
                         class="inline-block"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
